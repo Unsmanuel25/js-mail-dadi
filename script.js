@@ -1,37 +1,34 @@
-/* Invento una lista di email autorizzate.
-Chiedere all' utente la sua mail, con un form.
-Controllare che sia nella lista delle email autorizzate,
-stampare un messaggio appropriato sull'esito del controllo.
+/*
+Genero un numero random da 1 a 6, sia per il giocatore che per il computer./
+Stabilire il vincitore in base al punteggio che esce
 */
 
 //# fase di preparazione
-const resultElement = document.getElementById('result');
-const emailField = document.getElementById('email');
-const form = document.querySelector('form');
+const max = 6;
+const resulElement = document.getElementById('result');
 
-//# lista delle email autorizzate
-const allowedemails = ['ciccio@gmail.com', 'manuel@gmail.com', 'pippo@gmail.com']
+//# fase di raccolta dati
+const player1Number = math.floor(Math.random() * 6) + 1;
+const player2Number = math.floor(Math.random() * 6) + 1;
 
-//# elementi interattivi
-form.addEventListener('submit', function (event) {
-    event.preventDefault()
-    const email = emailField.ariaValueMax.trim();
-    if (!email) return;
+console.log('il giocatore 1 ha fatto:', player1Number)
+console.log('il giocatore 2 ha fatto:', player2Number)
 
-    //# fase di elaborazione
-    let isAllowed = false;
-    let message;
+let message;
 
-    if (isAllowed) {
-        message = 'Benvenuto'
-    } else {
-        message = 'Accesso negato'
-    }
+if (player1Number > player2Number) {
+    message: 'ha vinto il giocatore 1';
+} else if (player1Number < player2Number) {
+    message: 'ha vinto il giocatore 2';
+} else {
+    message: 'Pareggio';
+}
 
-    //# Stampo il messaggio corretto in pagina
-    const message = isAllowed ? 'Benvenuto' : 'accesso negato'
-    resultElement.innerText = message;
-})
+console.log(message)
 
-
-
+//# fase di output
+resultelement.innerHTML = `
+<p>Il giocatore 1 ha fatto: ${player1Number}</p>
+<p>Il giocatore 2 ha fatto: ${player2Number}</p>
+<p>${player2Number}</p>
+`;
